@@ -4,6 +4,6 @@ import br.com.fiap.pagamento.domain.entities.Pagamento;
 
 public interface PagamentoGateway {
 
-    Pagamento criar(Pagamento payment);
+    Pagamento criar(Pagamento pagamento);
 
 }

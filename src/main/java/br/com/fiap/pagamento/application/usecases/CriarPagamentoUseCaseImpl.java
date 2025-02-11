@@ -14,7 +14,7 @@ public class CriarPagamentoUseCaseImpl implements CriarPagamentoUseCase {
 
     @Override
     public Pagamento criar(CriaPagamentoCommand command){
-        Pagamento payment = new Pagamento(null, command.dataHora(), command.valor(), command.transacaoid(), command.status());
+        Pagamento payment = new Pagamento(null, command.dataHora(), command.valor(), command.status());
         return pagamentoGateway.criar(payment);
     }
 }
