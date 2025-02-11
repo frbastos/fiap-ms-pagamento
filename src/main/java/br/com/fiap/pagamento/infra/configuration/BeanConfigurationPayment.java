@@ -13,16 +13,9 @@ import br.com.fiap.pagamento.application.usecases.ProcessarPagamentoUseCase;
 import br.com.fiap.pagamento.application.usecases.ProcessarPagamentoUseCaseImpl;
 import br.com.fiap.pagamento.infra.api.scheduler.ProcessamentoScheduler;
 import br.com.fiap.pagamento.infra.gateways.NotificacaoPagamentoGatewayImpl;
-import br.com.fiap.pagamento.infra.gateways.PagamentoRepositoryGateway;
-import br.com.fiap.pagamento.infra.persistence.PagamentoRepository;
 
 @Configuration
 public class BeanConfigurationPayment {
-
-    @Bean
-    PagamentoGateway paymentGateway(PagamentoRepository paymentRepository) {
-        return new PagamentoRepositoryGateway(paymentRepository);
-    }
 
     @Bean
     CriarPagamentoUseCase createPaymentUseCase(PagamentoGateway paymentRepository) {
@@ -35,9 +28,10 @@ public class BeanConfigurationPayment {
     }
 
     @Bean
-    ProcessarPagamentoUseCase processarPagamentoUseCase(NotificacaoPagamentoGateway notificacaoPagamentoGateway,
+    ProcessarPagamentoUseCase processarPagamentoUseCase(PagamentoGateway pagamentoGateway,
+            NotificacaoPagamentoGateway notificacaoPagamentoGateway,
             CriarPagamentoUseCase criarPagamentoUseCase) {
-        return new ProcessarPagamentoUseCaseImpl(notificacaoPagamentoGateway, criarPagamentoUseCase);
+        return new ProcessarPagamentoUseCaseImpl(pagamentoGateway, notificacaoPagamentoGateway, criarPagamentoUseCase);
     }
 
     @Bean
