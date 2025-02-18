@@ -5,4 +5,4 @@ spring:
 
 pedidos:
     service:
-        url: http://acfb0ee06bbed4c949ee570591408684-1961638137.us-east-1.elb.amazonaws.com
+        url: http://a9f3a309d03134b829f55baa7cb25c2e-670484907.us-east-1.elb.amazonaws.com
