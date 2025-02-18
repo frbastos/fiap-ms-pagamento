@@ -2,3 +2,7 @@ spring:
   data:
     mongodb:
       uri: mongodb+srv://postechfiapprojeto:TOJI49cwoQqGpEvN@fiap.2hmb1.mongodb.net/pagamentos_collection
+
+pedidos:
+    service:
+        url: http://acfb0ee06bbed4c949ee570591408684-1961638137.us-east-1.elb.amazonaws.com
